@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Product } from './product.model';
+import { Transaction } from './Transaction.model';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
@@ -28,5 +29,16 @@ export class DataStorageService {
 
   deleteProduct(id: number) {
     return this.http.delete<Product[]>(`http://localhost:60600/products/${id}`);
+  }
+
+  getTransactions() {
+    return this.http.get<Transaction[]>('http://localhost:60600/transactions');
+  }
+
+  addTransaction(transaction: Transaction) {
+    return this.http.post<Transaction[]>(
+      'http://localhost:60600/transactions',
+      transaction
+    );
   }
 }
