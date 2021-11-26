@@ -13,7 +13,7 @@ export class DataStorageService {
   }
 
   getProduct(id: number) {
-    return this.http.get<Product[]>(`http://localhost:60600/products/${id}`);
+    return this.http.get<Product>(`http://localhost:60600/products/${id}`);
   }
 
   addProduct(product: Product) {
@@ -33,6 +33,10 @@ export class DataStorageService {
 
   getTransactions() {
     return this.http.get<Transaction[]>('http://localhost:60600/transactions');
+  }
+
+  getPastFiveTransactions() {
+    return this.http.get<Transaction[]>('http://localhost:60600/transactions/pastfive');
   }
 
   addTransaction(transaction: Transaction) {

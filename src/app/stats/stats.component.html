@@ -1,1 +1,26 @@
-<p>stats works!</p>
+<div class="row justify-content-center my-5 text-center">
+    <div class="col-4 my-3">
+        <h4>Top 5 sale</h4>
+        <div class="row justify-content-center">
+            <div class="col-10 border border-3 border-dark">
+                <p *ngFor="let t of topFive | slice:0:5;">{{ t.name }} - {{ t.amount }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 my-3">
+        <h4>Top 5 unique sale</h4>
+        <div class="row justify-content-center">
+            <div class="col-10 border border-3 border-dark">
+                <p *ngFor="let t of topFiveUnique | slice:0:5;">{{ t.name }} - {{ t.amount }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 my-3">
+        <h4>Past five days $</h4>
+        <div class="row justify-content-center">
+            <div class="col-10 border border-3 border-dark">
+                <p *ngFor="let p of pastFive | slice:0:5;">{{ p.date }} - {{ p.sum }}</p>
+            </div>
+        </div>
+    </div>
+</div>
